@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.myicecreamscoop.mccourse.MCCourseMod;
+import net.myicecreamscoop.mccourse.block.ModBlocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
@@ -20,6 +21,14 @@ public class ModCreativeModeTabs {
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.BLACK_OPAL);
                         pOutput.accept(ModItems.RAW_BLACK_OPAL);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_BLOCK);
+                        pOutput.accept(ModBlocks.RAW_BLACK_OPAL_BLOCK);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_ORE);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_END_ORE);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_NETHER_ORE);
+                        pOutput.accept(ModItems.CHAINSAW);
+
                     })
                     .icon(()-> new ItemStack(ModItems.BLACK_OPAL.get()))
                     .build());

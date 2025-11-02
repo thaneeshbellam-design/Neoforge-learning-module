@@ -1,6 +1,7 @@
 package net.myicecreamscoop.mccourse;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.myicecreamscoop.mccourse.block.ModBlocks;
 import net.myicecreamscoop.mccourse.item.ModCreativeModeTabs;
 import net.myicecreamscoop.mccourse.item.ModItems;
 import org.slf4j.Logger;
@@ -32,10 +33,11 @@ public class MCCourseMod {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public MCCourseMod(IEventBus modEventBus, ModContainer modContainer) {
         ModItems.ITEMS.register(modEventBus);
+
         ModCreativeModeTabs.register(modEventBus);
         modEventBus.addListener(this::addCreative);
 
-
+        ModBlocks.register(modEventBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
