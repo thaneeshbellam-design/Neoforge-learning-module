@@ -21,12 +21,17 @@ public class ChainsawItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
+        ItemStack stack = pContext.getItemInHand();
+
+        // Stop breaking if durability is at 1
+        if (stack.getDamageValue() >= stack.getMaxDamage() - 1) {
+            return InteractionResult.FAIL;
+        }
 
         if (!level.isClientSide()) {
             if (level.getBlockState(pContext.getClickedPos()).is(BlockTags.LOGS)) {
                 level.destroyBlock(pContext.getClickedPos(), true, pContext.getPlayer());
 
-                ItemStack stack = pContext.getItemInHand();
                 int max = stack.getMaxDamage();
                 int next = Math.min(max - 1, stack.getDamageValue() + 1);
                 stack.setDamageValue(next);
@@ -36,17 +41,19 @@ public class ChainsawItem extends Item {
         return InteractionResult.CONSUME;
     }
 
-    // --- Refuel when right-clicking with coal in offhand ---
+    // --- Refuel chainsaw with coal in offhand ---
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack chainsaw = player.getItemInHand(hand);
-        ItemStack offhand = player.getOffhandItem();
+        ItemStack chainsaw = player.getItemInHand(hand); // chainsaw in main hand
+        ItemStack offhand = player.getOffhandItem();      // coal in offhand
 
         if (!level.isClientSide()) {
-            if (offhand.is(Items.COAL) || offhand.is(Items.CHARCOAL)) {
+            // Only refuel if chainsaw is not already at 0 damage (full durability)
+            if ((offhand.is(Items.COAL) || offhand.is(Items.CHARCOAL)) && chainsaw.getDamageValue() > 0) {
                 int repaired = Math.max(0, chainsaw.getDamageValue() - 10);
                 chainsaw.setDamageValue(repaired);
-                offhand.shrink(1);
+
+                offhand.shrink(1); // consume coal
 
                 player.displayClientMessage(
                         net.minecraft.network.chat.Component.literal("Chainsaw refueled (+10 durability)!"),

@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.myicecreamscoop.mccourse.MCCourseMod;
+import net.myicecreamscoop.mccourse.block.custom.MagicBlock;
 import net.myicecreamscoop.mccourse.item.ModCreativeModeTabs;
 import net.myicecreamscoop.mccourse.item.ModItems;
 import net.neoforged.bus.api.IEventBus;
@@ -44,6 +45,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLACK_OPAL_NETHER_ORE = registerBlock("black_opal_nether_ore",
             ()-> new DropExperienceBlock(UniformInt.of(4,6),
                     BlockBehaviour.Properties.of().strength(3.5f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+    ()-> new MagicBlock(BlockBehaviour.Properties.of().strength(4f)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
