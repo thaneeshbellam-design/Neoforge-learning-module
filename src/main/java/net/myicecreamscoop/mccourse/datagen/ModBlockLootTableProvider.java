@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.neoforged.fml.common.Mod;
 
 import java.util.Set;
 
@@ -26,8 +27,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        this.add((ModBlocks.BLACK_OPAL_SLAB.get()),
+        block -> createSlabItemTable(ModBlocks.BLACK_OPAL_SLAB.get()));
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
         dropSelf(ModBlocks.RAW_BLACK_OPAL_BLOCK.get());
+        dropSelf(ModBlocks.BLACK_OPAL_STAIRS.get());
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
 
         this.add(ModBlocks.BLACK_OPAL_ORE.get(),

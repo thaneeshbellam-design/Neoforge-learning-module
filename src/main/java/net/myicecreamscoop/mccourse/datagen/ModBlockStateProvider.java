@@ -26,6 +26,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLACK_OPAL_END_ORE);
         blockWithItem(ModBlocks.BLACK_OPAL_NETHER_ORE);
 
+    stairsBlock(((StairBlock) ModBlocks.BLACK_OPAL_STAIRS.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
+    slabBlock(((SlabBlock) ModBlocks.BLACK_OPAL_SLAB.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()), blockTexture(ModBlocks.BLACK_OPAL_BLOCK.get()));
+
+
         blockWithItem(ModBlocks.MAGIC_BLOCK);
 
 

@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.BLACK_OPAL_NETHER_ORE);
                         pOutput.accept(ModItems.CHAINSAW);
                         pOutput.accept(ModBlocks.MAGIC_BLOCK);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_STAIRS);
+                        pOutput.accept(ModBlocks.BLACK_OPAL_SLAB);
 
                     })
                     .icon(()-> new ItemStack(ModItems.BLACK_OPAL.get()))
