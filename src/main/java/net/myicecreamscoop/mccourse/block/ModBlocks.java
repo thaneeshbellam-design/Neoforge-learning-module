@@ -4,11 +4,10 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.myicecreamscoop.mccourse.MCCourseMod;
 import net.myicecreamscoop.mccourse.block.custom.MagicBlock;
 import net.myicecreamscoop.mccourse.item.ModCreativeModeTabs;
@@ -57,6 +56,28 @@ public class ModBlocks {
 
 public static final DeferredBlock<Block> BLACK_OPAL_SLAB = registerBlock("black_opal_slab",
     ()-> new SlabBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_PRESSURE_PLATE = registerBlock("black_opal_pressure_plate",
+    ()-> new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_BUTTON = registerBlock("black_opal_button",
+    ()-> new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_FENCE = registerBlock("black_opal_fence",
+    ()-> new FenceBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_FENCE_GATE = registerBlock("black_opal_fence_gate",
+    ()-> new FenceGateBlock(WoodType.ACACIA,BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_WALL = registerBlock("black_opal_wall",
+    ()-> new WallBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_TRAPDOOR = registerBlock("black_opal_trapdoor",
+    ()-> new TrapDoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+
+public static final DeferredBlock<Block> BLACK_OPAL_DOOR = registerBlock("black_opal_door",
+    ()-> new DoorBlock(BlockSetType.IRON, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

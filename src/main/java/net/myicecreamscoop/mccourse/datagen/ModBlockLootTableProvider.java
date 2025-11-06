@@ -27,12 +27,21 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
+        this.add((ModBlocks.BLACK_OPAL_DOOR.get()),
+        block -> createDoorTable(ModBlocks.BLACK_OPAL_DOOR.get()));
         this.add((ModBlocks.BLACK_OPAL_SLAB.get()),
         block -> createSlabItemTable(ModBlocks.BLACK_OPAL_SLAB.get()));
         dropSelf(ModBlocks.BLACK_OPAL_BLOCK.get());
         dropSelf(ModBlocks.RAW_BLACK_OPAL_BLOCK.get());
         dropSelf(ModBlocks.BLACK_OPAL_STAIRS.get());
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
+        dropSelf(ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.BLACK_OPAL_BUTTON.get());
+        dropSelf(ModBlocks.BLACK_OPAL_FENCE.get());
+        dropSelf(ModBlocks.BLACK_OPAL_WALL.get());
+        dropSelf(ModBlocks.BLACK_OPAL_FENCE_GATE.get());
+        dropSelf(ModBlocks.BLACK_OPAL_TRAPDOOR.get());
+
 
         this.add(ModBlocks.BLACK_OPAL_ORE.get(),
                 block -> createOreDrop(ModBlocks.BLACK_OPAL_ORE.get(), ModItems.RAW_BLACK_OPAL.get()));
@@ -44,7 +53,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createMultipleOreDrops(ModBlocks.BLACK_OPAL_NETHER_ORE.get(), ModItems.RAW_BLACK_OPAL.get(), 3, 9));
 
     }
-
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         return this.createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock,

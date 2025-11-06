@@ -2,6 +2,7 @@ package net.myicecreamscoop.mccourse;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.myicecreamscoop.mccourse.block.ModBlocks;
+import net.myicecreamscoop.mccourse.block.custom.MagicBlock;
 import net.myicecreamscoop.mccourse.item.ModCreativeModeTabs;
 import net.myicecreamscoop.mccourse.item.ModItems;
 import org.slf4j.Logger;

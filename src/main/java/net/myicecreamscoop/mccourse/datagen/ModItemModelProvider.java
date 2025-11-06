@@ -20,7 +20,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BLACK_OPAL.get());
         basicItem(ModItems.RAW_BLACK_OPAL.get());
         basicItem(ModItems.CHAINSAW.get());
-    }
+        basicItem(ModBlocks.BLACK_OPAL_DOOR.asItem());
+
+
+
+        buttonItem(ModBlocks.BLACK_OPAL_BUTTON, ModBlocks.BLACK_OPAL_BLOCK);
+        fenceItem(ModBlocks.BLACK_OPAL_FENCE, ModBlocks.BLACK_OPAL_BLOCK);
+        wallItem(ModBlocks.BLACK_OPAL_WALL, ModBlocks.BLACK_OPAL_BLOCK);    }
 
     public void buttonItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/button_inventory"))

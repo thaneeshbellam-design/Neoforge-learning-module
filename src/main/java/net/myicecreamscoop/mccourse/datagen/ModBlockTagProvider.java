@@ -29,12 +29,29 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLACK_OPAL_ORE.get())
                 .add(ModBlocks.BLACK_OPAL_DEEPSLATE_ORE.get())
                 .add(ModBlocks.BLACK_OPAL_STAIRS.get())
-                .add(ModBlocks.BLACK_OPAL_SLAB.get());
+                .add(ModBlocks.BLACK_OPAL_SLAB.get())
+                .add(ModBlocks.BLACK_OPAL_PRESSURE_PLATE.get())
+                .add(ModBlocks.BLACK_OPAL_BUTTON.get())
+                .add(ModBlocks.BLACK_OPAL_WALL.get())
+                .add(ModBlocks.BLACK_OPAL_FENCE.get())
+                .add(ModBlocks.BLACK_OPAL_BLOCK.get())
+                .add(ModBlocks.BLACK_OPAL_TRAPDOOR.get())
+                .add(ModBlocks.BLACK_OPAL_DOOR.get());
 
+        tag(BlockTags.FENCES)
+                .add(ModBlocks.BLACK_OPAL_FENCE.get());
+        tag(BlockTags.WALLS)
+        .add(ModBlocks.BLACK_OPAL_WALL.get());
+        tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.BLACK_OPAL_FENCE_GATE.get());
 
+        this.tag(BlockTags.DOORS)
+                .add(ModBlocks.BLACK_OPAL_DOOR.get());
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.BLACK_OPAL_END_ORE.get())
                 .add(ModBlocks.BLACK_OPAL_NETHER_ORE.get());
+        this.tag(BlockTags.TRAPDOORS)
+                .add(ModBlocks.BLACK_OPAL_TRAPDOOR.get());
 
     }
 }
